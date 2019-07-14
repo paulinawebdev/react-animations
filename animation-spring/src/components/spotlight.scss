@@ -1,0 +1,74 @@
+.spotlight {
+    padding: 2rem 0;
+    background-image: url(https://static.playoverwatch.com/img/scene/candy-5d74c9b93f.jpg);
+    background-size: cover;
+    background-position: center;
+    .thumbnails {
+        display: flex;
+        justify-content: center;
+
+        img {
+            margin: 5px;
+            max-width: 90px;
+            transition: all .5s;
+            border-radius: 5px;
+            background-color: #737A98;
+            &:hover {
+                transform: scale(1.2);
+                background-color: #E7C960;
+                cursor: pointer;
+            }
+            &.active {
+                background-color: #E7C960;
+            }
+        }
+    }
+}
+.spotlight-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+
+    &:before {
+        content: "";
+        width: 90%;
+        height: 45%;
+        background-image: linear-gradient(to right,rgba(60,73,100,0.6), rgba(60,73,100,.8), rgba(60,73,100,0.6));
+        position: absolute;
+    }
+}
+
+.spotlight-img, .spotlight-info {
+    position: relative;
+}
+
+.spotlight-img {
+    width: 45%;
+    img {
+        max-height: 420px;
+        max-width: 440px;
+        height: 100%;
+        margin: auto;
+        display: block;
+    }
+}
+
+.spotlight-info {
+    color: #FFF;
+    width: 50%;
+    & > * {
+        max-width: 400px;
+        line-height:1.5;
+    }
+    .spotlight-title {
+        font-size: 1.8rem;
+        font-weight:bold;
+        text-transform: uppercase;
+    }
+    .spotlight-desc {
+        font-size: 1.2rem;
+    }
+}
