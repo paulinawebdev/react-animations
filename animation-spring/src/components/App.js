@@ -1,6 +1,7 @@
 import React from 'react';
-import './App.scss';
+import '../scss/theme.scss';
 import Spotlight from './spotlight';
+// import Test from './test';
 
 function App() {
 
@@ -80,6 +81,7 @@ function App() {
         </div>
       </header>
       <Spotlight items={charInfo} />
+      {/* <Test/> */}
     </div>
   );
 }

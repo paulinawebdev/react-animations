@@ -1,11 +1,12 @@
 import React from 'react';
-import './spotlight.scss';
+import { Spring } from 'react-spring/renderprops';
 
 export default class Spotlight extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeCharacter: 0
+            activeCharacter: 0,
+            show: true
         }
         this.handleIconClick = this.handleIconClick.bind(this);
     }
@@ -19,16 +20,33 @@ export default class Spotlight extends React.Component {
         const character = this.state.activeCharacter;
         const spotlightItems = this.props.items;
         const icon = spotlightItems.map((item, index) => <img onClick={this.handleIconClick} key={index} data-index={index} src={item.thumbnail} alt={item.name} />);
+
         return(
             <div className="spotlight">
                 <div className="spotlight-main">
                     <div className="spotlight-img">
-                        <img src={spotlightItems[character].fullImg} alt={spotlightItems[character].name} />
+                        <Spring
+                            from={{ opacity: 0, transform: 'translate3d(-100px,0,0)' }}
+                            to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+                            reset="true"
+                            delay="200">
+                            {props => <img style={ props } src={spotlightItems[character].fullImg} alt={spotlightItems[character].name} />}
+                        </Spring>
                     </div>
-                    <div className="spotlight-info">
-                        <div className="spotlight-title">{spotlightItems[character].name}</div>
-                        <div className="spotlight-desc">{spotlightItems[character].desc}</div>
-                    </div>
+                    
+                    <Spring
+                        from={{ opacity: 0, transform: 'translate3d(0,-50px,0)' }}
+                        to={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+                        reset="true"
+                        delay="200">
+                        {props =>
+                        <div style={ props } className="spotlight-info">
+                            <div className="spotlight-title">{spotlightItems[character].name}</div>
+                            <div className="spotlight-desc">{spotlightItems[character].desc}</div>
+                        </div>
+                    }
+                    </Spring>
+                        
                 </div>
                 <div className="thumbnails">
                     {icon}
