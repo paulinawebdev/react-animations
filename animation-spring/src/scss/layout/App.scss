@@ -11,7 +11,7 @@ body {
   overflow-x: hidden;
 }
 .header {
-  padding: 0 1rem;
+  padding: .5rem 1rem;
   background-color: $dark-purple;
   display: flex;
   align-items: center;
@@ -23,10 +23,12 @@ body {
 }
 .logo {
   margin-right: 1rem;
+  svg, img {
+    height: 42px;
+  }
   svg {
     fill: $primary-blue;
     width: 62px;
-    height: 40px;
   }
 }
 .nav-links {
@@ -36,10 +38,9 @@ body {
     color: $primary-white;
     text-decoration: none;
     text-transform: uppercase;
-  }
-}
-.header-right {
-  .nav-link {
-    text-transform: initial;
+    &.cta {
+      border: 2px solid;
+      cursor: pointer;
+    }
   }
 }
