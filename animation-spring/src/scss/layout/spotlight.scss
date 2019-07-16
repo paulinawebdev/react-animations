@@ -1,8 +1,14 @@
 .spotlight {
-    padding: 2rem 0;
-    background-image: url(https://static.playoverwatch.com/img/scene/candy-5d74c9b93f.jpg);
+    padding: 2.5rem 0;
     background-size: cover;
     background-position: center;
+    &.overwatch {
+        background-image: url(https://static.playoverwatch.com/img/scene/candy-5d74c9b93f.jpg);
+    }
+    &.nexon {
+        background-position: top;
+        background-image: url(http://nxcache.nexon.net/maplestory/assets-new/img/bg_section_ghosted_grey_variation_6.jpg);
+    }
     .thumbnails {
         justify-content: center;
         @include display-flex;
@@ -79,10 +85,7 @@
 }
 
 .spotlight-img {
-    width: 45%;
-    @include media-query(tablet) {    
-        width: 40%;
-    }
+    min-width: 30%;
     @include media-query(phone) {    
         width: 100%;
         top: -3rem;

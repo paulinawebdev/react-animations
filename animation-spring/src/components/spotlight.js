@@ -21,8 +21,10 @@ export default class Spotlight extends React.Component {
         const spotlightItems = this.props.items;
         const icon = spotlightItems.map((item, index) => <img onClick={this.handleIconClick} key={index} data-index={index} src={item.thumbnail} alt={item.name} />);
 
+        let spotlightTheme = this.props.theme;
+
         return(
-            <div className="spotlight">
+            <div className={"spotlight " + spotlightTheme}>
                 <div className="spotlight-main">
                     <div className="spotlight-img">
                         <Spring

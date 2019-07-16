@@ -13,7 +13,7 @@ const pages = [
   ),
 ]
 
-export default class Test extends React.PureComponent {
+export default class Video extends React.PureComponent {
   state = { index: 0 }
   toggle = e =>
     this.setState(state => ({
