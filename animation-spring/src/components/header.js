@@ -25,10 +25,10 @@ function Header(props) {
                     {logo}
                 </Link>
                 </div>
-                <div className="nav-links">
+                {/* <div className="nav-links">
                     <Link to="/" className="nav-link">Character Slider</Link>
                     <Link to="/video" className="nav-link">Video Slider</Link>
-                </div>
+                </div> */}
             </div>
             <div className="header-right">
                 <div className="nav-links">

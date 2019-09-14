@@ -1,14 +1,22 @@
 import React from 'react';
 import { Spring } from 'react-spring/renderprops';
+import { Trail } from 'react-spring/renderprops';
 
 export default class Spotlight extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             activeCharacter: 0,
-            show: true
+            show: true,
+            theme: this.props.theme
         }
         this.handleIconClick = this.handleIconClick.bind(this);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.theme !== this.props.theme) {
+            this.setState({activeCharacter: 0, theme: this.props.theme})
+        }
     }
 
     handleIconClick(e) {
@@ -19,12 +27,10 @@ export default class Spotlight extends React.Component {
     render() {
         const character = this.state.activeCharacter;
         const spotlightItems = this.props.items;
-        const icon = spotlightItems.map((item, index) => <img onClick={this.handleIconClick} key={index} data-index={index} src={item.thumbnail} alt={item.name} />);
-
-        let spotlightTheme = this.props.theme;
 
         return(
-            <div className={"spotlight " + spotlightTheme}>
+            <React.Fragment>
+            <div className={"spotlight " + this.state.theme}>
                 <div className="spotlight-main">
                     <div className="spotlight-img">
                         <Spring
@@ -51,9 +57,13 @@ export default class Spotlight extends React.Component {
                         
                 </div>
                 <div className="thumbnails">
-                    {icon}
+                    <Trail items={spotlightItems} keys={(spotlightItem) => spotlightItem.id} from={{ opacity: 0 }} to={{ opacity: 1 }}>
+                        {(spotlightItem, index) => props => <img key={index} style={props} className={index  === parseInt(this.state.activeCharacter) ? "active" : ""} data-index={index} onClick={this.handleIconClick} src={spotlightItem.thumbnail} alt={spotlightItem.name} />}
+                    </Trail>
                 </div>
             </div>
+            
+            </React.Fragment>
         )
     }
 }
