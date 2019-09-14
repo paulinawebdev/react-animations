@@ -1,0 +1,139 @@
+.spotlight {
+    padding: 2.5rem 0;
+    background-size: cover;
+    background-position: center;
+    &.overwatch {
+        background-image: url(https://static.playoverwatch.com/img/scene/candy-5d74c9b93f.jpg);
+    }
+    &.nexon {
+        background-position: top;
+        background-image: url(http://nxcache.nexon.net/maplestory/assets-new/img/bg_section_ghosted_grey_variation_6.jpg);
+    }
+    .thumbnails {
+        justify-content: center;
+        @include display-flex;
+        @include media-query(phone) {    
+            justify-content: flex-start;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            width: 96%;
+            margin: auto;
+            padding-bottom: .25rem;
+            /* scrollbar style */
+            &::-webkit-scrollbar {
+                height: 7px;
+            }
+            &::-webkit-scrollbar-track {
+                background: #f1f1f1; 
+            }
+            &::-webkit-scrollbar-thumb {
+                background: #888; 
+            }
+            &::-webkit-scrollbar-thumb:hover {
+                background: #555; 
+            }
+        }
+
+        img {
+            margin: 5px;
+            max-width: 90px;
+            transition: all .5s;
+            border-radius: 5px;
+            background-color: #737A98;
+            &:hover {
+                transform: scale(1.2);
+                background-color: #E7C960;
+                cursor: pointer;
+            }
+            &.active {
+                background-color: #E7C960;
+            }
+            @include media-query(tablet) {    
+                max-width: 70px;
+            }
+        }
+    }
+}
+.spotlight-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+
+    @include media-query(phone) {    
+        flex-wrap: wrap;
+        margin-top: 3rem;
+    }
+
+    &:before {
+        content: "";
+        width: 90%;
+        height: 55%;
+        background-image: linear-gradient(to right,rgba(60,73,100,0.6), rgba(60,73,100,.8), rgba(60,73,100,0.6));
+        position: absolute;
+
+        @include media-query(phone) {    
+            height: 90%;
+        }
+    }
+}
+
+.spotlight-img, .spotlight-info {
+    position: relative;
+}
+
+.spotlight-img {
+    min-width: 30%;
+    @include media-query(phone) {    
+        width: 100%;
+        top: -3rem;
+    }
+    img {
+        max-height: 420px;
+        max-width: 440px;
+        height: 100%;
+        margin: auto;
+        display: block;
+        @include media-query(tablet) {    
+            max-height: 350px;
+        }
+        @include media-query(phone) {    
+            max-height: 300px;
+        }
+    }
+}
+
+.spotlight-info {
+    color: #FFF;
+    width: 50%;
+    @include media-query(phone) {    
+        width: 80%;
+        text-align: center;
+        top: -3rem;
+    }
+    & > * {
+        max-width: 400px;
+        margin: auto;
+        line-height:1.5;
+        @include media-query(tablet) {    
+            max-width: 350px;
+        }
+    }
+    .spotlight-title {
+        font-size: 1.8rem;
+        font-weight:bold;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        @include media-query(phone) {    
+            font-size: 1.25rem;
+        }
+    }
+    .spotlight-desc {
+        font-size: 1.2rem;
+        @include media-query(phone) {    
+            font-size: .9rem;
+        }
+    }
+}

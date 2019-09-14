@@ -4,11 +4,23 @@
   box-sizing: border-box;
 }
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+}
+.app {
+  overflow-x: hidden;
+}
+.loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: pink;
 }
 .header {
-  padding: 0 1rem;
-  background-color: #0e001a;
+  padding: .5rem 1rem;
+  background-color: $dark-purple;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -19,23 +31,24 @@ body {
 }
 .logo {
   margin-right: 1rem;
+  svg, img {
+    height: 42px;
+  }
   svg {
-    fill: #009ae4;
+    fill: $primary-blue;
     width: 62px;
-    height: 40px;
   }
 }
 .nav-links {
   .nav-link {
     padding: .5rem 1rem;
     font-size: .9rem;
-    color: #FFF;
+    color: $primary-white;
     text-decoration: none;
     text-transform: uppercase;
-  }
-}
-.header-right {
-  .nav-link {
-    text-transform: initial;
+    &.cta {
+      border: 2px solid;
+      cursor: pointer;
+    }
   }
 }
